@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Home">
+
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="2dp"
+        app:cardBackgroundColor="@color/white"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/profile_image"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="20dp"
+                android:src="@drawable/send"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginHorizontal="20dp"
+                app:layout_constraintStart_toEndOf="@id/profile_image"
+                app:layout_constraintTop_toTopOf="@id/profile_image"
+                app:layout_constraintBottom_toBottomOf="@id/profile_image"
+                android:hint="What's on your mind?"
+                android:paddingBottom="15dp"
+                android:id="@+id/PostET"
+                android:textColor="@color/black"
+                android:textColorHint="#5D5D5D"/>
+            <LinearLayout
+                android:id="@+id/LinearLayoutForPostAddMedia"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal"
+                android:weightSum="4"
+                app:layout_constraintStart_toStartOf="@id/PostET"
+                app:layout_constraintTop_toBottomOf="@id/PostET">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="end"
+                    android:layout_weight="1"
+                    android:src="@drawable/chat" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:gravity="center_vertical"
+                    android:layout_marginStart="6dp"
+                    android:text="Add Media"
+                    android:textColor="@color/black" />
+
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                app:layout_constraintTop_toBottomOf="@id/PostET"
+                app:layout_constraintEnd_toEndOf="@id/PostET"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:text="Post"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/black"
+                app:cornerRadius="20dp"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
