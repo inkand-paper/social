@@ -25,7 +25,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    android:textColor="#5D5D5D"/>
+                    android:textColor="@color/black"/>
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
