@@ -4,13 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+
     <com.google.android.material.card.MaterialCardView
-        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         app:cardBackgroundColor="@color/white"
-        app:cardElevation="2dp"
         app:cardCornerRadius="0dp"
+        app:cardElevation="2dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -19,22 +20,21 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                xmlns:app="http://schemas.android.com/apk/res-auto"
+            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/profile_image"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
-                android:layout_marginTop="20dp"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
                 android:src="@drawable/profile_image"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <LinearLayout
                 android:id="@+id/LinearLayoutForPost1"
-                android:layout_marginStart="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
                 android:orientation="vertical"
                 android:weightSum="2"
                 app:layout_constraintBottom_toBottomOf="@id/profile_image"
@@ -88,22 +88,20 @@
                 android:id="@+id/Post"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/profile_image"
-                app:layout_constraintStart_toStartOf="@id/profile_image"
-                app:layout_constraintEnd_toEndOf="@id/LinearLayoutForPost2"
-                android:text="Your post goes here"
                 android:layout_marginTop="25dp"
+                android:text="Your post goes here"
+                android:textColor="@color/black"
                 android:textSize="22sp"
-                android:textColor="@color/black"/>
+                app:layout_constraintEnd_toEndOf="@id/LinearLayoutForPost2"
+                app:layout_constraintStart_toStartOf="@id/profile_image"
+                app:layout_constraintTop_toBottomOf="@id/profile_image" />
 
 
             <LinearLayout
                 android:id="@+id/LinearLayoutForPost3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginTop="30dp"
-                android:layout_marginBottom="20dp"
                 android:orientation="horizontal"
                 android:weightSum="4"
                 app:layout_constraintStart_toStartOf="@id/Post"
@@ -119,9 +117,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:layout_marginStart="6dp"
                     android:layout_weight="3"
                     android:gravity="center_vertical"
-                    android:layout_marginStart="6dp"
                     android:text="Comment"
                     android:textColor="#5D5D5D" />
 
@@ -131,9 +129,7 @@
                 android:id="@+id/LinearLayoutForPost4"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginTop="30dp"
-                android:layout_marginBottom="20dp"
                 android:orientation="horizontal"
                 android:weightSum="4"
                 app:layout_constraintEnd_toEndOf="@id/Post"
@@ -149,20 +145,107 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:layout_marginStart="6dp"
                     android:layout_weight="3"
                     android:gravity="center_vertical"
-                    android:layout_marginStart="6dp"
                     android:text="270 Likes"
                     android:textColor="#5D5D5D" />
 
             </LinearLayout>
 
+            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/profile_image_for_comment"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/profile_image"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/LinearLayoutForPost4" />
 
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:background="@drawable/box2"
+                android:hint="Share your thoughts here..."
+                android:padding="8dp"
+                app:layout_constraintBottom_toBottomOf="@id/profile_image_for_comment"
+                app:layout_constraintEnd_toEndOf="@id/LinearLayoutForPost4"
+                app:layout_constraintStart_toEndOf="@id/profile_image_for_comment"
+                app:layout_constraintTop_toTopOf="@id/profile_image_for_comment" />
 
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="10dp"
+                app:cardBackgroundColor="#E7F2FF"
+                app:cardCornerRadius="5dp"
+                app:cardElevation="2dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/profile_image_for_comment">
 
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
+                    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/profile_image_comment"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/profile_image"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
+                    <LinearLayout
+                        android:id="@+id/LinearLayoutForComment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:orientation="vertical"
+                        android:weightSum="2"
+                        app:layout_constraintBottom_toBottomOf="@id/profile_image_comment"
+                        app:layout_constraintStart_toEndOf="@id/profile_image_comment"
+                        app:layout_constraintTop_toTopOf="@id/profile_image_comment">
 
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:text="Robert Fox"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:text="Software Engineer"
+                            android:textColor="#5D5D5D" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="20dp"
+                        android:text="your comment goes here"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/profile_image_comment" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>

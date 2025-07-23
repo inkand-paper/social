@@ -46,7 +46,7 @@
                         android:layout_height="96dp"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="20dp"
-                        android:src="@drawable/send"
+                        android:src="@drawable/profile_image"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
