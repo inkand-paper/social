@@ -16,13 +16,17 @@ class SignUp : AppCompatActivity() {
         binding = ActivitySignupBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.LoginTV.setOnClickListener {
+            startActivity(Intent(this,Login::class.java))
+        }
+
         binding.SignUpBtn.setOnClickListener {
             validation()
         }
 
     }
 
-    private fun SignUp.validation() {
+    private fun validation() {
         val name = binding.TIET1.text.toString().trim()
         val email = binding.TIET2.text.toString().trim()
         val password = binding.TIET3.text.toString().trim()
