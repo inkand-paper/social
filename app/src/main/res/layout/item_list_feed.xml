@@ -42,6 +42,7 @@
                 app:layout_constraintTop_toTopOf="@id/profile_image">
 
                 <TextView
+                    android:id="@+id/NameInPost"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -49,6 +50,7 @@
                     android:textColor="@color/black" />
 
                 <TextView
+                    android:id="@+id/DetailsInPost"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -69,6 +71,7 @@
                 app:layout_constraintTop_toTopOf="@id/profile_image">
 
                 <ImageView
+                    android:id="@+id/MoreInPost"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_gravity="end"
@@ -76,6 +79,7 @@
                     android:src="@drawable/more" />
 
                 <TextView
+                    android:id="@+id/TimeInPost"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="3"
@@ -96,16 +100,29 @@
                 app:layout_constraintStart_toStartOf="@id/profile_image"
                 app:layout_constraintTop_toBottomOf="@id/profile_image" />
 
+            <ImageView
+                android:id="@+id/postImage"
+                android:layout_width="0dp"
+                android:visibility="gone"
+                android:layout_height="200dp"
+                android:layout_marginTop="16dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/Post" />
+
 
             <LinearLayout
                 android:id="@+id/LinearLayoutForPost3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="30dp"
                 android:orientation="horizontal"
                 android:weightSum="4"
-                app:layout_constraintStart_toStartOf="@id/Post"
-                app:layout_constraintTop_toBottomOf="@id/Post">
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/postImage">
 
                 <ImageView
                     android:layout_width="25dp"
@@ -130,10 +147,11 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
+                android:layout_marginEnd="20dp"
                 android:orientation="horizontal"
                 android:weightSum="4"
-                app:layout_constraintEnd_toEndOf="@id/Post"
-                app:layout_constraintTop_toBottomOf="@id/Post">
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/postImage">
 
                 <ImageView
                     android:layout_width="25dp"
@@ -157,25 +175,29 @@
                 android:id="@+id/profile_image_for_comment"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
                 android:src="@drawable/profile_image"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/LinearLayoutForPost4" />
+                android:layout_marginBottom="20dp"
+                app:layout_constraintBottom_toTopOf="@id/CommentCardView"
+                app:layout_constraintTop_toBottomOf="@id/LinearLayoutForPost3"
+                app:layout_constraintStart_toStartOf="@id/LinearLayoutForPost3"
+                android:layout_marginTop="20dp" />
 
             <EditText
+                android:id="@+id/CommentField"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:background="@drawable/box2"
                 android:hint="Share your thoughts here..."
                 android:padding="8dp"
-                app:layout_constraintBottom_toBottomOf="@id/profile_image_for_comment"
-                app:layout_constraintEnd_toEndOf="@id/LinearLayoutForPost4"
+                app:layout_constraintTop_toTopOf="@id/profile_image_for_comment"
                 app:layout_constraintStart_toEndOf="@id/profile_image_for_comment"
-                app:layout_constraintTop_toTopOf="@id/profile_image_for_comment" />
+                app:layout_constraintBottom_toBottomOf="@id/profile_image_for_comment"
+                app:layout_constraintEnd_toEndOf="@id/LinearLayoutForPost4" />
+
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/CommentCardView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
@@ -183,6 +205,7 @@
                 android:layout_marginBottom="10dp"
                 app:cardBackgroundColor="#E7F2FF"
                 app:cardCornerRadius="5dp"
+                android:visibility="gone"
                 app:cardElevation="2dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -215,6 +238,7 @@
                         app:layout_constraintTop_toTopOf="@id/profile_image_comment">
 
                         <TextView
+                            android:id="@+id/NameInComment"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
@@ -222,6 +246,7 @@
                             android:textColor="@color/black" />
 
                         <TextView
+                            android:id="@+id/DetailsInComment"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
@@ -231,6 +256,7 @@
                     </LinearLayout>
 
                     <TextView
+                        android:id="@+id/Comment"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="20dp"

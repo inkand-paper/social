@@ -3,6 +3,7 @@ package com.example.socialmedia
 import android.R
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.socialmedia.databinding.ActivitySignupBinding
@@ -14,6 +15,7 @@ class SignUp : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignupBinding.inflate(layoutInflater)
+        firebase = FirebaseAuth.getInstance()
         setContentView(binding.root)
 
         binding.LoginTV.setOnClickListener {
@@ -35,20 +37,41 @@ class SignUp : AppCompatActivity() {
         if (name.isEmpty()) {
             binding.TIET1.hint = "Please enter your name"
             binding.TIET1.setHintTextColor(ContextCompat.getColor(this, R.color.holo_red_dark))
+            return
+        }else{
+            if (email.isEmpty()) {
+                binding.TIET2.hint = "Please enter your email"
+                binding.TIET2.setHintTextColor(ContextCompat.getColor(this, R.color.holo_red_dark))
+                return
+            }
+            else{
+                if (password.isEmpty()) {
+                    binding.TIET3.hint = "Please enter your password"
+                    binding.TIET3.setHintTextColor(ContextCompat.getColor(this, R.color.holo_red_dark))
+                    return
+                }
+                else{
+                    if (confirmPassword.isEmpty()) {
+                        binding.TIET4.hint = "Please enter your password"
+                        binding.TIET4.setHintTextColor(ContextCompat.getColor(this, R.color.holo_red_dark))
+                        return
+                    }
+                }
+            }
         }
-        if (email.isEmpty()) {
-            binding.TIET2.hint = "Please enter your email"
-            binding.TIET2.setHintTextColor(ContextCompat.getColor(this, R.color.holo_red_dark))
+        firebase.createUserWithEmailAndPassword(email,password).addOnCompleteListener { task ->
+            if (task.isSuccessful){
+                Toast.makeText(this, "Account created successfully", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this,MainActivity::class.java))
+                finish()
+            }else{
+                Toast.makeText(this, task.exception?.message?: "Account creation failed", Toast.LENGTH_SHORT).show()
+                return@addOnCompleteListener
+            }
+
         }
-        if (password.isEmpty()) {
-            binding.TIET3.hint = "Please enter your password"
-            binding.TIET3.setHintTextColor(ContextCompat.getColor(this, R.color.holo_red_dark))
-        }
-        if (confirmPassword.isEmpty()) {
-            binding.TIET4.hint = "Please enter your password"
-            binding.TIET4.setHintTextColor(ContextCompat.getColor(this, R.color.holo_red_dark))
-        }
-        startActivity(Intent(this, MainActivity::class.java))
+
+
     }
 }
 
